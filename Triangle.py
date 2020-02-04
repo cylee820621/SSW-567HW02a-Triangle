@@ -55,3 +55,6 @@ def classifyTriangle(a,b,c):
         return 'Scalene'
     else:
         return 'Isoceles'
+
+
+print(classifyTriangle(1,1,1))
