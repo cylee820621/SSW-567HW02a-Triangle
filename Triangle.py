@@ -3,13 +3,12 @@
 Chih-Yu Lee
 """
 
-def classifyTriangle(a, b, c):
+def classify_triangle(side_length1, side_length2, side_length3):
     """
     Your correct code goes here...  Fix the faulty logic below until the code passes all of
     you test cases.
     This function returns a string with the type of triangle from three integer values
     corresponding to the lengths of the three sides of the Triangle.
-    
     return:
         If all three sides are equal, return 'Equilateral'
         If exactly one pair of sides are equal, return 'Isoceles'
@@ -20,24 +19,26 @@ def classifyTriangle(a, b, c):
     """
     # verify that all 3 inputs are integers
     # Python's "isinstance(object,type) returns True if the object is of the specified type
-    if (isinstance(a, str) or isinstance(b, str) or isinstance(c, str)):
+    if (isinstance(side_length1, str) or isinstance(side_length2, str) or isinstance(side_length3, str)):
         return 'InvalidInput'
     # require that the input values be >= 0 and <= 200
-    if a <= 0 or b <= 0 or c <= 0:
+    if side_length1 <= 0 or side_length2 <= 0 or side_length3 <= 0:
         return 'InvalidInput'
-    # This information was not in the requirements spec but 
+    # This information was not in the requirements spec but
     # is important for correctness
     # the sum of any two sides must be strictly less than the third side
     # of the specified shape is not a triangle
-    if (a+b< c) or (a+c< b) or (b+c< a):
+    if (side_length1+side_length2 < side_length3) or\
+        (side_length1+side_length3 < side_length2) or\
+        (side_length2+side_length3 < side_length1):
         return 'NotATriangle'
-        
     # now we know that we have a valid triangle
-    if a == b == c:
+    if side_length1 == side_length2 == side_length3:
         return 'Equilateral'
-    elif ((a ** 2) + (b ** 2)) == (c ** 2) or ((a ** 2) + (c ** 2)) == (b ** 2) or ((b ** 2) + (c ** 2)) == (a ** 2):
+    if ((side_length1 ** 2) + (side_length2 ** 2)) == (side_length3 ** 2) or\
+        ((side_length1 ** 2) + (side_length3 ** 2)) == (side_length2 ** 2) or\
+        ((side_length2 ** 2) + (side_length3 ** 2)) == (side_length1 ** 2):
         return 'Right'
-    elif (a != b) and  (b != c) and (a != c):
+    elif (side_length1 != side_length2) and  (side_length2 != side_length3) and (side_length1 != side_length3):
         return 'Scalene'
-    else:
-        return 'Isoceles'
+    return 'Isoceles'
