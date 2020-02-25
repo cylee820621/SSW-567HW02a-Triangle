@@ -5,7 +5,7 @@
 
 import unittest
 
-from Triangle import classify_triangle
+from triangle import classify_triangle
 
 # This code implements the unit test functionality
 # https://docs.python.org/3/library/unittest.html has a nice description of the framework
