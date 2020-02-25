@@ -19,7 +19,8 @@ def classify_triangle(side_length1, side_length2, side_length3):
     """
     # verify that all 3 inputs are integers
     # Python's "isinstance(object,type) returns True if the object is of the specified type
-    if (isinstance(side_length1, str) or isinstance(side_length2, str) or isinstance(side_length3, str)):
+    if (isinstance(side_length1, str) or isinstance(side_length2, str) or\
+         isinstance(side_length3, str)):
         return 'InvalidInput'
     # require that the input values be >= 0 and <= 200
     if side_length1 <= 0 or side_length2 <= 0 or side_length3 <= 0:
@@ -39,6 +40,7 @@ def classify_triangle(side_length1, side_length2, side_length3):
         ((side_length1 ** 2) + (side_length3 ** 2)) == (side_length2 ** 2) or\
         ((side_length2 ** 2) + (side_length3 ** 2)) == (side_length1 ** 2):
         return 'Right'
-    elif (side_length1 != side_length2) and  (side_length2 != side_length3) and (side_length1 != side_length3):
+    elif (side_length1 != side_length2) and  (side_length2 != side_length3) and\
+         (side_length1 != side_length3):
         return 'Scalene'
     return 'Isoceles'
